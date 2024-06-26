@@ -1,6 +1,6 @@
 # Tkinter Data Entry Form
 
-This repository features a simple yet functional data entry form built using Tkinter, Python’s standard GUI toolkit. This project demonstrates the creation of a graphical user interface for collecting user information and course details, with built-in validation to ensure completeness and accuracy.
+This repository features a functional data entry form built using Tkinter, Python’s standard GUI toolkit. This project demonstrates the creation of a graphical user interface for collecting user information and course details, with built-in validation to ensure completeness and accuracy.
 
 ## Features
 
