@@ -1,6 +1,6 @@
 # Tkinter Data Entry Form with SQLite
 
-This repository features a functional data entry form built using Tkinter, Python’s standard GUI toolkit, and SQlite for datastorage. This project demonstrates the creation of a graphical user interface for collecting user information and course details, with built-in validation to ensure completeness and accuracy.
+This repository features a functional data entry form built using Tkinter, Python’s standard GUI toolkit, and SQLite for datastorage. This project demonstrates the creation of a graphical user interface for collecting user information and course details, with built-in validation to ensure completeness and accuracy.
 
 ## Features
 
@@ -31,12 +31,12 @@ This repository features a functional data entry form built using Tkinter, Pytho
 
 1. Clone the repository:
     ```bash
-    git clone  https://github.com/nahili-ansha/Tkinter-SQlite-Data-Entry.git
+    git clone  https://github.com/nahili-ansha/Tkinter-SQLite-Data-Entry.git
     ```
 
 2. Navigate to the project directory:
     ```bash
-    cd Tkinter-SQlite-Data-Entry
+    cd Tkinter-SQLite-Data-Entry
     ```
 
 ## Usage
