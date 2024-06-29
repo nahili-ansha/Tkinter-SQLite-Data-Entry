@@ -1,6 +1,7 @@
 import tkinter
 from tkinter import messagebox  # To use messagebox
 from tkinter import ttk  # To use combobox
+import sqlite3
 
 
 def enter_data():
@@ -17,7 +18,53 @@ def enter_data():
             # Course info
             registration_status = reg_status_var.get()  # Get the registration status
             numcourses = numcourses_spinbox.get()  # Get the number of completed courses
-            semesters = semesters_spinbox.get()  # Get the number of semesters
+            numsemesters = semesters_spinbox.get()  # Get the number of semesters
+
+            # Print the entered data to the console
+            print(f"First Name: {first_name}  Last Name: {last_name}")
+            print(f"Title: {title}  Age: {age}  Nationality: {nationality}")
+            print(f"# Courses: {numcourses}  # Semesters: {numsemesters}")
+            print(f"Registration status: {registration_status}")
+            print("---------------------------------------------------------")
+
+            # Create a connection to the SQLite database named 'data.db'
+            # If the database does not exist, it will be created
+            conn = sqlite3.connect('data.db')
+            # Define the SQL query to create a table named 'Student_Data' if it doesn't already exist
+            # The table will have columns: firstname, lastname, title, age, nationality, registration_status, num_courses, and num_semesters
+            table_create_query = '''CREATE TABLE IF NOT EXISTS Student_Data(
+                firstname TEXT, 
+                lastname TEXT, 
+                title TEXT, 
+                age INT, 
+                nationality TEXT, 
+                registration_status TEXT, 
+                num_courses INT, 
+                num_semesters INT
+            )'''
+            # Execute the table creation query
+            conn.execute(table_create_query)
+            # Define the SQL query to insert data into the 'Student_Data' table
+            data_insert_query = '''INSERT INTO Student_Data (
+                firstname,
+                lastname,
+                title,
+                age,
+                nationality,
+                registration_status,
+                num_courses,
+                num_semesters
+            ) VALUES (?, ?, ?, ?, ?, ?, ?, ?)'''
+            # Prepare the data to be inserted as a tuple
+            data_insert_tuple = (first_name, last_name, title, age, nationality, registration_status, numcourses, numsemesters)
+            # Create a cursor object to execute the insert query
+            cursor = conn.cursor()
+            # Execute the insert query with the data tuple
+            cursor.execute(data_insert_query, data_insert_tuple)
+            # Commit the transaction to save the changes in the database
+            conn.commit()
+            # Close the connection to the database
+            conn.close()
         else:
             # Show warning if first name or last name is missing
             tkinter.messagebox.showwarning(title="Error", message="First name and last name are required.")
@@ -25,13 +72,8 @@ def enter_data():
         # Show warning if terms are not accepted
         tkinter.messagebox.showwarning(title="Error", message="You have not accepted the terms.")
     
-    # Print the entered data to the console
-    print(f"First Name: {first_name}  Last Name: {last_name}")
-    print(f"Title: {title}  Age: {age}  Nationality: {nationality}")
-    print(f"# Courses: {numcourses}  # Semesters: {semesters}")
-    print(f"Registration status: {registration_status}")
-    print("---------------------------------------------------------")
-
+    
+    
 # Create the main window
 window = tkinter.Tk()
 window.title("Data Entry Form")
