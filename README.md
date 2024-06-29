@@ -31,12 +31,12 @@ This repository features a functional data entry form built using Tkinter, Pytho
 
 1. Clone the repository:
     ```bash
-    git clone https://github.com/nahili-ansha/Tkinter-Data-Entry-Form-With-SQlite.git
+    git clone  https://github.com/nahili-ansha/Tkinter-SQlite-Data-Entry.git
     ```
 
 2. Navigate to the project directory:
     ```bash
-    cd Tkinter-Data-Entry-Form-With-SQlite
+    cd Tkinter-SQlite-Data-Entry
     ```
 
 ## Usage
